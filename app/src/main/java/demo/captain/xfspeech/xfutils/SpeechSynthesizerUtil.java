@@ -51,10 +51,11 @@ public class SpeechSynthesizerUtil {
     }
 
     /**
-     * @param speechContent:语音内容
-     * @param speechId:唯一语音Id(字符串，切记不可与其他语音id重复)
-     * @param speechSaveParentPath:语音存储的文件夹完整路径(如Environment.getExternalStorageDirectory().getAbsolutePath() )，结尾不能含"/"
-     * @注意：当speechId和speechSaveParentPath任一为空时，语音存储使用默认路径(Configs.xfSpeechSavePath + speechId + ".pcm")
+     * @param context:传Applicaiton的context
+     * @param speechContent:语音文本内容
+     * @param speechId:唯一语音Id(切记不可与其他语音id重复)
+     * @param speechSaveParentPath:语音缓存路径(绝对路径)，结尾不能含"/"
+     * @注意：当speechId和speechSaveParentPath任一为空时，使用默认缓存路径
      */
     public String makeSpeech(Context context, String speechContent, String speechId, String speechSaveParentPath) {
         String speechSavePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "XFSpeech" + File.separator + speechId + ".pcm";                   //语音文件默认路径
