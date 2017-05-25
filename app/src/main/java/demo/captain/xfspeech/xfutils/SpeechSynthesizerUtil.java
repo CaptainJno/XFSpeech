@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
@@ -80,6 +83,11 @@ public class SpeechSynthesizerUtil {
             mAudioPlayer.prepare();                             // 音频源就绪
             mAudioPlayer.play();
             return "播放缓存语音";
+        } else {
+            if (!isNetworkAvailable(context)) {
+                Toast.makeText(context, "当前网络状况不佳,请检查", Toast.LENGTH_SHORT).show();
+                return "";
+            }
         }
 
 /*--------------------------下面这段是科大讯飞官方代码-------------------------*/
@@ -172,5 +180,22 @@ public class SpeechSynthesizerUtil {
             }
         }
         return data_pack;
+    }
+
+    /**
+     * 判断网络链接是否可用
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity != null) {
+            NetworkInfo info = connectivity.getActiveNetworkInfo();
+            if (info != null && info.isConnected() && (info.getState() == NetworkInfo.State.CONNECTED)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
