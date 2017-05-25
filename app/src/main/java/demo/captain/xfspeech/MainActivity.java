@@ -8,9 +8,6 @@ import android.widget.TextView;
 
 import demo.captain.xfspeech.xfutils.SpeechSynthesizerUtil;
 
-/**
- * Created by captainjno on 2017/5/25.
- */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView cache_tv;
     Button play_btn;
