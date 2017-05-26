@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.play_btn:        //播放
-                String str = SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", null);  //语音缓存采用默认路径
+                String str = SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345");  //语音缓存采用默认路径
 //                String str = SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345",
 //                        Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "XFSpeech");                     //语音缓存采用指定路径
                 cache_tv.setText(str);

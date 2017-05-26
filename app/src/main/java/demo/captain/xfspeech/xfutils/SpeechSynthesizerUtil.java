@@ -49,8 +49,8 @@ public class SpeechSynthesizerUtil {
         SpeechUtility.createUtility(context, SpeechConstant.APPID + "=" + msg);
     }
 
-    public void makeSpeech(Context context, String content, String speechId) {
-        makeSpeech(context, content, speechId, null);
+    public String makeSpeech(Context context, String content, String speechId) {
+        return makeSpeech(context, content, speechId, null);
     }
 
     /**
