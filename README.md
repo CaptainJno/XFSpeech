@@ -22,7 +22,7 @@
  或
  指定缓存路径
  ```
- String str = SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", 指定缓存路径);
+SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", 指定缓存路径);
  ```
  
 使用中有任何问题、优化建议，请提Issues。我会尽快fix 或 update。
