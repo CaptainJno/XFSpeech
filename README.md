@@ -7,17 +7,22 @@
 
 知识点：缓存的语音格式是.pcm，播放缓存采用AudioTrack。
 
-使用步骤：
+# 使用步骤：
 
- 1、初始化语音合成功能：
- 
+ * 1、初始化语音合成功能：
+ ```
  SpeechSynthesizerUtil.initSpeech(getApplicationContext());
+ ```
  
- 
- 2、播放语音：
- 
- SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", null);  //默认缓存路径
- 
- String str = SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", 指定缓存路径);  //指定缓存路径
+ * 2、播放语音：
+ 默认缓存路径
+ ```
+ SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", null);
+ ```
+ 或
+ 指定缓存路径
+ ```
+ String str = SpeechSynthesizerUtil.getInstance().makeSpeech(getApplicationContext(), "Nice to meet U", "12345", 指定缓存路径);
+ ```
  
 使用中有任何问题、优化建议，请提Issues。我会尽快fix 或 update。
